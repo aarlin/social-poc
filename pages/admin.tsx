@@ -9,6 +9,7 @@ import {
 } from '@tremor/react';
 
 import { useState } from 'react';
+import ClaimStatusTable from '../components/ClaimStatusTable';
 
 export default function Example() {
     const [selectedView, setSelectedView] = useState(1);
@@ -19,7 +20,8 @@ export default function Example() {
 
             { /* Main section */ }
             <Card marginTop="mt-6">
-                <div className="h-96" />
+                <ClaimStatusTable/>
+                {/* <div className="h-96" /> */}
             </Card>
 
             { /* KPI section */ }
