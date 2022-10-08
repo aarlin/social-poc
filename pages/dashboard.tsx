@@ -5,13 +5,15 @@ import { useEffect, useState } from "react";
 import { getAuth } from 'firebase/auth';
 import { useRouter } from "next/router";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import ActivitySummaryCard from "../components/ActivitySummaryCard";
 
 const Dashboard: NextPage = () => {
   const [itemData, setItemData] = useState<ItemProps[]>([]);
-  const userName: string = "Blah";
   const auth = getAuth();
   const router = useRouter();
   const [user, loading] = useAuthState(auth);
+  const userName: string = user?.displayName ?? '';
+  const photoImage = user?.photoURL ?? '';
 
   // Generate some fake items.
   useEffect(() => {
@@ -51,6 +53,10 @@ const Dashboard: NextPage = () => {
       </div>
       <div className="text-center flex flex-col gap-6 items-center">
         {itemElements}
+      </div>
+      <br/>
+      <div>
+        <ActivitySummaryCard></ActivitySummaryCard>
       </div>
       <div className="mt-8 w-full flex">
         <button className="text-center bg-blue-600 text-white rounded-md p-2 w-48">
