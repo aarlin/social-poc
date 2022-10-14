@@ -4,6 +4,7 @@ import { initFirebase } from '../firebase/firebaseApp';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from "next/router";
+import { AuthenticationForm } from "../components/AuthenticationForm";
 
 const Home: NextPage = () => {
 
@@ -28,12 +29,13 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className="text-center flex flex-col gap-4 items-center">
-      <div>Please sign in to continue</div>
-      <button onClick={signIn}>
-        <a className="bg-blue-600 text-white rounded-md p-2 w-48">Sign In</a>
-      </button>
-    </div>
+    <AuthenticationForm/>
+    // <div className="text-center flex flex-col gap-4 items-center">
+    //   <div>Please sign in to continue</div>
+    //   <button onClick={signIn}>
+    //     <a className="bg-blue-600 text-white rounded-md p-2 w-48">Sign In</a>
+    //   </button>
+    // </div>
   );
 };
 
