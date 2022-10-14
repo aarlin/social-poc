@@ -6,6 +6,7 @@ import { getAuth } from 'firebase/auth';
 import { useRouter } from "next/router";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ActivitySummaryCard from "../components/ActivitySummaryCard";
+import { TableReviews } from "../components/TableReviews";
 
 const Dashboard: NextPage = () => {
   const [itemData, setItemData] = useState<ItemProps[]>([]);
@@ -59,9 +60,7 @@ const Dashboard: NextPage = () => {
         <ActivitySummaryCard></ActivitySummaryCard>
       </div>
       <div className="mt-8 w-full flex">
-        <button className="text-center bg-blue-600 text-white rounded-md p-2 w-48">
-          Add Item
-        </button>
+        {/* <TableReviews/> */}
       </div>
     </div>
   );
